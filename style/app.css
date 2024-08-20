@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'PageTitleFont';
+    src: url(../src/assets/fonts/Chomsky.otf) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 .header {
     display: flex;
     width: 100%;
@@ -12,4 +19,13 @@
     flex-direction: row;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.page-name {
+    font-family: 'PageTitleFont', sans-serif;
+    font-size: 3.5rem;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    
 }

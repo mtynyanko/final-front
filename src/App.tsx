@@ -1,18 +1,15 @@
-import Button from '@mui/material/Button';
-import Header from './header.tsx';
+import Header from './components/header.tsx';
+import Container from './components/container.tsx';
+import React from 'react';
 
-
-const App = () => {
-  let count = 0;
-  return (
-    <>
-    <Header />
-      <p>hello world</p>
-      <Button variant='contained' onClick={()=>{
-        count++;
-        console.log(count);
-      }}>button</Button>
-    </>
-  )
+class App extends React.Component {
+  render() {
+    return (
+      <>
+      <Header title="The Taganrog Times" />
+      <Container posts={[]} />
+      </>
+    )
+  }
 }
 export default App

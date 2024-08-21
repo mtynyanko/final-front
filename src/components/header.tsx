@@ -5,16 +5,15 @@ interface HeaderProps {
     title: string;
 }
 
-class Header extends React.Component<HeaderProps> {
-    render() {
-        return (
-            <>
-            <div className="header">
-                <h3 className="page-name">{this.props.title}</h3>
-                <Avatar variant="outlined" color="danger" />
-            </div>
-            </>
-        )
-    }
+const Header: React.FC<HeaderProps> = ({ title }) => {
+    return (
+        <>
+        <div className="header">
+            <h3 className="page-name">{title}</h3>
+            <Avatar variant="outlined" color="danger" />
+        </div>
+        </>
+    )
 }
+
 export default Header

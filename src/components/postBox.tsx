@@ -4,20 +4,17 @@ interface PostProps {
     title: string;
     content: string;
     imageURL: string;
-    key: number;
 }
 
-class PostBox extends React.Component<PostProps> {
-    render() {
-        return (
-            <>
-            <div className='post-box' key={this.props.key}>
-                <h3>{this.props.title}</h3>
-                <img src={this.props.imageURL} />
-                <div>{this.props.content}</div>
-            </div>
-            </>
-        )
-    }
+const PostBox: React.FC<PostProps> = ({ title, content, imageURL }) => {
+    return (
+        <>
+        <div className='post-box'>
+            <h3>{title}</h3>
+            <img src={imageURL} />
+            <div>{content}</div>
+        </div>
+        </>
+    )
 }
 export default PostBox

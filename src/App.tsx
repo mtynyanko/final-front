@@ -1,15 +1,14 @@
 import Header from './components/header.tsx';
-import Container from './components/container.tsx';
-import React from 'react';
+import MainPage from './components/mainPage.tsx';
 
-class App extends React.Component {
-  render() {
-    return (
-      <>
-      <Header title="The Taganrog Times" />
-      <Container posts={[]} />
-      </>
-    )
-  }
+
+const App = () => {
+  return (
+    <>
+    <Header title="The Taganrog Times" />
+    <MainPage />
+    </>
+  )
 }
+
 export default App

@@ -1,6 +1,8 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import PostBox from "./postBox";
+import { useSelector, useDispatch } from 'react-redux'
+
 
 interface ResponseProps {
     id: number;
@@ -12,34 +14,32 @@ interface ResponseProps {
     updatedAt: Date;
 }
 
-interface StateProps {
-    posts: ResponseProps[];
-}
 
-class Container extends React.Component<StateProps> {
-    state: StateProps = {
-        posts: [],
-    }
-    componentDidMount() {
+const Container = () => {
+    // const [posts, setPosts] = useState<ResponseProps[]>([]);
+    
+    const posts = useSelector((state) => state.values.posts);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
         axios.get('http://localhost:3001/posts')
         .then(res => {
-            const posts = res.data;
-            this.setState({ posts })
+            setPosts(res.data);
         })
-    }
-    render() {
-        return (
-            <>
-            <div className="container">
-                {
-                    this.state.posts
-                    .map(post => 
-                        <PostBox key={post.id} title={post.header} content={post.content} imageURL={post.imageURL} />
-                    )
-                }
-            </div>
-            </>
-        )
-    }
+    }, []) 
+
+    return (
+        <>
+        <div className="container">
+            {
+                posts
+                .map(post => 
+                    <PostBox key={post.id} title={post.header} content={post.content} imageURL={post.imageURL} />
+                )
+            }
+        </div>
+        </>
+    )
 }
+
 export default Container

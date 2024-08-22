@@ -1,26 +1,41 @@
-import { Actions, PostAction } from "./actions";
+import { 
+    POSTS_REQUEST, 
+    FETCH_POSTS_SUCCESS, 
+    FETCH_POSTS_FAILURE, 
+    PostAction 
+} from "./actions";
 import { Post } from "./actions";
 import { Reducer } from "redux";
 
 
 interface PostsState {
     posts: Post[];
+    isLoading: boolean;
+    error: string | null;
 }
 
 const initialState: PostsState = {
-    posts: [] 
+    posts: [],
+    isLoading: false,
+    error: null,
 }
 
 
 const postsReducer: Reducer<PostsState, PostAction> = (state = initialState, action) => {
     switch(action.type) {
-        case Actions.ADD_POST: return {
+        case POSTS_REQUEST: return {
             ...state,
-            posts: [...state.posts, ...action.payload]
-        };
-        case Actions.REWRITE_POSTS: return {
+            isLoading: true,
+        }
+        case FETCH_POSTS_SUCCESS: return {
             ...state,
-            posts: action.payload,
+            posts: action.payload as Post[],
+            isLoading: false,
+        }
+        case FETCH_POSTS_FAILURE: return {
+            ...state,
+            error: action.payload as string,
+            isLoading: false,
         }
         default:
             return state;

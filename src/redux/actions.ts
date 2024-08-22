@@ -1,7 +1,6 @@
-export enum Actions {
-    ADD_POST = 'ADD_POST',
-    REWRITE_POSTS = 'REWRITE_POSTS',
-} 
+export const POSTS_REQUEST = 'POSTS_REQUEST';
+export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
+export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
 
 export interface Post {
     id: number;
@@ -14,19 +13,22 @@ export interface Post {
 }
 
 export interface PostAction {
-    type: Actions;
-    payload: Post[];
+    type: string;
+    payload?: Post[] | string;
 }
 
-export const addPost = (post: Post[]): PostAction => ({
-    type: Actions.ADD_POST,
-    payload: post,
-});
+export const requestPosts = (): PostAction => ({
+    type: POSTS_REQUEST,
+})
 
-export const rewritePosts = (posts: Post[]): PostAction => ({
-    type: Actions.REWRITE_POSTS,
+export const fetchPosts = (posts: Post[]): PostAction => ({
+    type: FETCH_POSTS_SUCCESS,
     payload: posts,
 });
 
+export const fetchError = (error: Error): PostAction => ({
+    type: FETCH_POSTS_FAILURE,
+    payload: error.message,
+})
 
 

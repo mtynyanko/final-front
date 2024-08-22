@@ -4,13 +4,12 @@ import PostBox from "./postBox";
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux'
 import { rewritePosts } from "../redux/actions";
 import { RootState } from "../redux/store";
-import { AppDispatch } from "../redux/store";
+import { MyDispatch } from "../redux/store";
 
 const Container = () => {
-    // const [posts, setPosts] = useState<ResponseProps[]>([]);
     const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector
     const posts = useTypedSelector((state) => state.posts);
-    const dispatch: AppDispatch = useDispatch();
+    const dispatch: MyDispatch = useDispatch();
 
     useEffect(() => {
         axios.get('http://localhost:3001/posts')

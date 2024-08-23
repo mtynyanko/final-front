@@ -1,0 +1,18 @@
+.post-box {
+    padding-top: 20px;
+    border-top: 1px solid black;
+    display: flex;
+    height: 400px;
+    width: 650px;
+    justify-content: space-between;
+}
+.image {
+    width: 420px;
+    height: 300px;
+}
+.text {
+    font-size: 0.8rem;
+}
+.text .title {
+    font-size: 1.2em;
+}

@@ -1,12 +1,7 @@
-import { 
-    POSTS_REQUEST, 
-    FETCH_POSTS_SUCCESS, 
-    FETCH_POSTS_FAILURE, 
-    PostAction 
-} from "./actions";
-import { Post } from "./actions";
 import { Reducer } from "redux";
 
+import { POSTS_REQUEST, FETCH_POSTS_SUCCESS, FETCH_POSTS_FAILURE, } from "./actions/constants";
+import { PostAction, Post } from "./actions/actions";
 
 interface PostsState {
     posts: Post[];
@@ -19,7 +14,6 @@ const initialState: PostsState = {
     isLoading: false,
     error: null,
 }
-
 
 const postsReducer: Reducer<PostsState, PostAction> = (state = initialState, action) => {
     switch(action.type) {
@@ -40,6 +34,6 @@ const postsReducer: Reducer<PostsState, PostAction> = (state = initialState, act
         default:
             return state;
     }
-};
+}
 
 export default postsReducer;

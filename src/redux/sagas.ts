@@ -1,15 +1,13 @@
 import { call, put, takeEvery, all } from "redux-saga/effects";
 import axios from "axios";
 import { AxiosResponse } from "axios";
-import { FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS, POSTS_REQUEST } from "./actions";
-import { Post } from "./actions";
 
-
+import { FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS, POSTS_REQUEST } from "./actions/constants";
+import { Post } from "./actions/actions";
 
 const getPostsApi = (): Promise<AxiosResponse> => {
     return axios.get('http://localhost:3001/posts')
 }
-
 
 function* fetchPosts() {
     try {

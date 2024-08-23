@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import PostBox from "./postBox";
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux'
-import { RootState } from "../redux/store";
-import { MyDispatch } from "../redux/store";
-import { requestPosts } from "../redux/actions";
 
-const Container = () => {
+import { RootState, MyDispatch } from "../../redux/store";
+import { requestPosts } from "../../redux/actions/actions";
+import PostItem from "../PostItem/PostItem";
+import './PostList.scss'
+
+const PostList = () => {
     const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector
     const posts = useTypedSelector((state) => state.posts);
     const dispatch: MyDispatch = useDispatch();
@@ -15,17 +16,15 @@ const Container = () => {
     }, [dispatch]) 
 
     return (
-        <>
         <div className="container">
             {
                 posts
                 .map(post => 
-                    <PostBox key={post.id} title={post.header} content={post.content} imageURL={post.imageURL} />
+                    <PostItem key={post.id} title={post.header} content={post.content} imageURL={post.imageURL} />
                 )
             }
         </div>
-        </>
     )
 }
 
-export default Container
+export default PostList

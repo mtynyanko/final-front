@@ -1,5 +1,6 @@
-import Header from './components/header.tsx';
-import MainPage from './components/mainPage.tsx';
+import Header from '../components/Header/Header.tsx';
+import MainPage from '../pages/MainPage/MainPage.tsx';
+import './App.scss';
 
 
 const App = () => {

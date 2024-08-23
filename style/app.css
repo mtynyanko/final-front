@@ -4,72 +4,9 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: 'PageTitleFont';
-    src: url(../src/assets/fonts/Chomsky.otf) format('opentype');
-    font-weight: bold;
-    font-style: normal;
-}
 
-.header div {
-    border-bottom: 1px solid rgb(216, 216, 216);
-    display: flex;
-    width: 100%;
-    align-items: center;
     
-}
-
-.title-block {
-    padding: 10px 20px;
-    justify-content: space-between;
-    flex-direction: row;
-    position: relative;
-}
-.date-block {
-    padding: 7px 20px;
-    justify-content: center;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-    font-size: 0.84rem;
-}
 
 
-.page-name {
-    font-family: 'PageTitleFont', sans-serif;
-    font-size: 2rem;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    
-}
-.main {
-    display: flex;
-    justify-content: center;
-}
-.container {
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    max-width: 70vw;
-    align-items: center;
-    row-gap: 10px;
-}
-.post-box {
-    padding-top: 20px;
-    border-top: 1px solid black;
-    display: flex;
-    height: 400px;
-    width: 650px;
-    justify-content: space-between;
-}
-.image {
-    width: 420px;
-    height: 300px;
-}
-.text {
-    font-size: 0.8rem;
-}
-.text .title {
-    font-size: 1.2em;
-}
+
+

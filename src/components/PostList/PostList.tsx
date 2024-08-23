@@ -20,7 +20,7 @@ const PostList = () => {
             {
                 posts
                 .map(post => 
-                    <PostItem key={post.id} title={post.header} content={post.content} imageURL={post.imageURL} />
+                    <PostItem key={post.id} title={post.header} content={post.content} imageURL={post.imageUrl} avatar={post.author.avatar} author={post.author.login}/>
                 )
             }
         </div>

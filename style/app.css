@@ -23,9 +23,25 @@
 
 .page-name {
     font-family: 'PageTitleFont', sans-serif;
-    font-size: 3.5rem;
+    font-size: 2rem;
     position: relative;
     left: 50%;
     transform: translate(-50%);
     
+}
+.container {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.post-box {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+    border: 1px solid black;
+}
+.image {
+    width: 300px;
+    height: 300px;
 }

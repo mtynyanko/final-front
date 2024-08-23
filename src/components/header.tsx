@@ -1,5 +1,6 @@
 import React from 'react'
-import Avatar from '@mui/joy/Avatar'
+
+import PersonIcon from '@mui/icons-material/Person'
 
 interface HeaderProps {
     title: string;
@@ -10,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         <>
         <div className="header">
             <h3 className="page-name">{title}</h3>
-            <Avatar variant="outlined" color="danger" />
+            <PersonIcon />
         </div>
         </>
     )

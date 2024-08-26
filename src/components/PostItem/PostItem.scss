@@ -1,37 +1,83 @@
 .post-box {
-    padding-top: 20px;
-    border-top: 1px solid black;
+    margin: 40px;
+    position: relative;
     display: flex;
-    height: 400px;
-    width: 650px;
+    height: 300px;
+    width: 889px;
     justify-content: space-between;
+    align-items: center;
+
 }
 .image {
-    width: 420px;
+    width: 280px;
     height: 300px;
+    border-radius: 5px;
+}
+
+.separation {
+    height: 110%;
+    border-left: 1px solid black;
 }
 .text {
-    font-size: 0.8rem;
+    width: 530px;
+    height: 300px;
+
+    font-size: 1rem;
 }
-.text .title {
-    font-size: 1.2em;
+.post-box .header {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto';
+}
+//padding: 19px
+.title {
+    font-size: 1.7em;
+    
+}
+.date {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    color: gray;
+    font-style: italic;
+}
+.content {
+    padding-top: 19px;
+    font-family: 'Roboto';
+    hyphens: auto;
 }
 .author {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     display: flex;
-    padding-left: 5px;
     align-items: center;
     gap: 10px;
     font-size: 1.3em;
 }
 .avatar {
-    width: 30px;
-    height: 30px;
+    width: 33px;
+    height: 33px;
     border-radius: 100%;
     color: white;
-    background-color: cadetblue;
+    background-color: rgb(117, 117, 117);
     font-family: 'Roboto';
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2em;
+    font-size: 0.95em;
+}
+.author-name {
+    font-family: 'Roboto';
+    font-size: 1rem;
+}
+
+
+.post-box:not(:first-of-type)::after {
+    content: ' ';
+    position: absolute;
+    top: -65px;
+    left: -200px;
+    border-top: 1px solid rgb(219, 219, 219);
+    width: 1250px;
+    
 }

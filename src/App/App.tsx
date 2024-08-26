@@ -4,6 +4,7 @@ import './App.scss';
 
 
 const App = () => {
+  
   return (
     <>
     <Header title="The Taganrog Times" />

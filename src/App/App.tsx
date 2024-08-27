@@ -1,16 +1,14 @@
-import Header from '../components/Header/Header.tsx';
-import MainPage from '../pages/MainPage/MainPage.tsx';
-import './App.scss';
-
+import Header from "../components/Header/Header.tsx";
+import MainPage from "../pages/MainPage/MainPage.tsx";
+import "./App.scss";
 
 const App = () => {
-  
   return (
     <>
-    <Header title="The Taganrog Times" />
-    <MainPage />
+      <Header title="The Taganrog Times" />
+      <MainPage />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

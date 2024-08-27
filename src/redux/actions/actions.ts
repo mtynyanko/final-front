@@ -25,21 +25,21 @@ export interface Post {
 
 export interface PostAction {
     type: string;
-    payload?: Post[] | string;
+    payload?: Post[] | Error;
 }
 
 export const requestPosts = (): PostAction => ({
     type: POSTS_REQUEST,
 })
 
-export const fetchPosts = (posts: Post[]): PostAction => ({
+export const fetchPostsSuccess = (posts: Post[]): PostAction => ({
     type: FETCH_POSTS_SUCCESS,
     payload: posts,
 });
 
-export const fetchError = (error: Error): PostAction => ({
+export const fetchPostsError = (error: Error): PostAction => ({
     type: FETCH_POSTS_FAILURE,
-    payload: error.message,
+    payload: error,
 })
 
 

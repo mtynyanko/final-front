@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux'
-
+import Error from "../Error/error";
 import { RootState, MyDispatch } from "../../redux/store";
 import { requestPosts } from "../../redux/actions/actions";
 import PostItem from "../PostItem/PostItem";
@@ -21,8 +21,9 @@ const PostList = () => {
             <Loading />
         )
     } else if (error) {
+        
         return (
-            <div className="error-screen">error</div>
+            <Error errorObject={error}/>
         )
     } else if (!posts.length) {
         <div className="message">no news for today</div>

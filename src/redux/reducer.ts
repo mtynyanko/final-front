@@ -6,7 +6,7 @@ import { PostAction, Post } from "./actions/actions";
 interface PostsState {
     posts: Post[];
     isLoading: boolean;
-    error: string | null;
+    error: Error | null;
 }
 
 const initialState: PostsState = {
@@ -28,7 +28,7 @@ const postsReducer: Reducer<PostsState, PostAction> = (state = initialState, act
         }
         case FETCH_POSTS_FAILURE: return {
             ...state,
-            error: action.payload as string,
+            error: action.payload as Error,
             isLoading: false,
         }
         default:

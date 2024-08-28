@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import Error from "../Error/Error";
+
 import { MyDispatch } from "../../redux/store";
 import { requestPosts } from "../../redux/actions/actions";
+import Error from "../Error/Error";
 import PostItem from "../PostItem/PostItem";
 import Loading from "../Loading/Loading";
 import { useTypedSelector } from "../../hooks";
+
 import "./PostList.scss";
 
 const PostList = () => {

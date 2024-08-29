@@ -1,3 +1,4 @@
+import DateForm from "../DateForm/DateForm";
 import "./PostItem.scss";
 
 interface PostProps {
@@ -17,16 +18,6 @@ const PostItem = ({
   avatar,
   createdAt,
 }: PostProps) => {
-  const dateFormatting = (date: Date): string => {
-    const newDate = new Date(date);
-    const options: Intl.DateTimeFormatOptions = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    return newDate.toLocaleDateString("en-US", options);
-  };
 
   return (
     <>
@@ -34,9 +25,9 @@ const PostItem = ({
         <img className="image" src={imageURL} />
         <div className="separation"></div>
         <div className="text">
-          <div className="header">
+          <div className="post-header">
             <h3 className="title">{title}</h3>
-            <p className="date">{dateFormatting(createdAt)}</p>
+              <DateForm date={createdAt} className="date" />
           </div>
           <div className="content">{content}</div>
         </div>

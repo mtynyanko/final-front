@@ -4,7 +4,7 @@ import { AxiosResponse } from "axios";
 
 import { POSTS_REQUEST } from "./actions/constants";
 import { fetchPostsSuccess, fetchPostsError, Post } from "./actions/actions";
-import { getPostsApi } from "../api/apiPosts";
+import { getPostsApi } from "./api/apiPosts";
 
 
 

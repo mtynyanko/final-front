@@ -1,11 +1,11 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-
 import { AxiosResponse } from "axios";
 
+import { Post } from "../../types/model.types";
 import { POSTS_REQUEST } from "../actions/constants";
 import { fetchPostsSuccess, fetchPostsError } from "../actions/postActions";
 import { getPostsApi } from "../api/apiPosts";
-import { Post } from "../../types/model.types";
+
 
 
 

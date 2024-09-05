@@ -1,15 +1,15 @@
 import "./Error.scss";
 
 interface ErrorProps {
-  errorObject: Error;
+  errorMessage: string;
 }
 
-const Error = ({ errorObject } : ErrorProps) => {
+const Error = ({ errorMessage } : ErrorProps) => {
   return (
     <div className="error-screen">
       <div className="screen">
         <span className="error-message">
-          {errorObject.message.toUpperCase()}
+          {errorMessage.toUpperCase()}
         </span>
       </div>
     </div>

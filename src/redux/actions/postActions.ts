@@ -1,15 +1,11 @@
 import { Post } from "../../types/model.types.ts";
+import { PostAction } from "../../types/action.types.ts";
 
 import {
   POSTS_REQUEST,
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_SUCCESS,
 } from "./constants.ts";
-
-export interface PostAction {
-  type: string;
-  payload?: Post[] | Error;
-}
 
 export const requestPosts = (): PostAction => ({
   type: POSTS_REQUEST,

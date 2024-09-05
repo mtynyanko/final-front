@@ -1,13 +1,13 @@
 import { Reducer } from "redux";
 
+import { Post } from "../../types/model.types.ts";
+import { PostAction } from "../../types/action.types.ts";
+import { PostsState } from "../../types/state.types.ts";
 import {
   POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
 } from "../actions/constants.ts"
-import { PostAction } from "../actions/postActions.ts";
-import { Post } from "../../types/model.types.ts";
-import { PostsState } from "../../types/state.types.ts";
 
 
 

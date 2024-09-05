@@ -10,8 +10,6 @@ import Loading from "../Loading";
 
 import "./PostList.scss";
 
-
-
 const PostList = () => {
   const dispatch: MyDispatch = useDispatch();
   const posts = useTypedSelector((state) => state.post.posts);
@@ -22,20 +20,19 @@ const PostList = () => {
     dispatch(requestPosts());
   }, [dispatch]);
 
-  if (isLoading) {
-    return <Loading />;
-  } else if (error) {
-    return <Error errorObject={error} />;
-  } else if (!posts.length) {
-    <span className="message">no news for today</span>;
-  } else {
-    return (
+  if (isLoading) return <Loading />;
+
+  return (
+    <>
+      {error && <Error errorMessage={error.message} />}
+      {!posts.length && <Error errorMessage={"no posts for today"} />}
       <div className="container">
         {posts.map((post) => (
           <PostItem
             key={post.id}
             title={post.header}
             content={post.content}
+            tags={post.tags}
             imageURL={post.imageUrl}
             avatar={post.author.avatar}
             author={post.author.login}
@@ -43,8 +40,8 @@ const PostList = () => {
           />
         ))}
       </div>
-    );
-  }
+    </>
+  );
 };
 
 export default PostList;

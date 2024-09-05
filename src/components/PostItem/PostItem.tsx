@@ -30,10 +30,10 @@ const PostItem = ({
         <div className="text">
           <div className="post-header">
             <h3 className="title">{title}</h3>
-              <DateForm date={createdAt} className="date" />
+            <DateForm date={createdAt} className="date" />
           </div>
           <div className="tags">
-            {tags.map(tag => tag.name).reduce((acc, tag)  => acc+', '+tag)}
+            {tags.map((tag) => tag.name).reduce((acc, tag) => acc + ", " + tag)}
           </div>
           <div className="content">{content}</div>
         </div>

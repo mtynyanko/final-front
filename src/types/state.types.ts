@@ -1,8 +1,7 @@
 import { Post } from "./model.types";
 
 export interface PostsState {
-    posts: Post[];
-    isLoading: boolean;
-    error: Error | null;
-  }
-  
+  posts: Post[];
+  isLoading: boolean;
+  error: Error | null;
+}

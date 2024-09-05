@@ -6,11 +6,6 @@ import { POSTS_REQUEST } from "../actions/constants";
 import { fetchPostsSuccess, fetchPostsError } from "../actions/postActions";
 import { getPostsApi } from "../api/apiPosts";
 
-
-
-
-
-
 function* fetchPosts() {
   try {
     const response: AxiosResponse<Post[]> = yield call(getPostsApi);

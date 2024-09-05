@@ -3,15 +3,13 @@ interface DateFormProps {
   date?: Date;
 }
 
-const DateForm = ({ date, className = 'date-block' }: DateFormProps) => {
-
+const DateForm = ({ date, className = "date-block" }: DateFormProps) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-
 
   const dateFormatting = (date?: Date): string => {
     let newDate;
@@ -22,8 +20,6 @@ const DateForm = ({ date, className = 'date-block' }: DateFormProps) => {
     }
     return newDate.toLocaleDateString("en-US", options);
   };
-  return (
-    <div className={className}>{dateFormatting(date)}</div>
-  );
+  return <div className={className}>{dateFormatting(date)}</div>;
 };
 export default DateForm;

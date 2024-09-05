@@ -5,7 +5,7 @@ import "./Loading.scss";
 const Loading = () => {
   return (
     <div className="loading-screen">
-      <CircularProgress color='inherit' />
+      <CircularProgress color="inherit" />
     </div>
   );
 };

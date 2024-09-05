@@ -1,4 +1,5 @@
-import DateForm from "../DateForm/DateForm";
+import DateForm from "../DateForm";
+
 import "./PostItem.scss";
 
 interface PostProps {
@@ -18,9 +19,8 @@ const PostItem = ({
   avatar,
   createdAt,
 }: PostProps) => {
-
   return (
-    <>
+    <div className="card">
       <div className="post-box">
         <img className="image" src={imageURL} />
         <div className="separation"></div>
@@ -40,7 +40,7 @@ const PostItem = ({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default PostItem;

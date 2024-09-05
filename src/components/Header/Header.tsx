@@ -1,7 +1,7 @@
-import DateForm from "../DateForm/DateForm";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
+
+import DateForm from "../DateForm";
 
 import "./Header.scss";
 
@@ -19,5 +19,4 @@ const Header = () => {
     </>
   );
 };
-
 export default Header;

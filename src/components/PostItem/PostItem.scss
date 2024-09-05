@@ -1,4 +1,5 @@
 .post-box {
+
     margin: 40px;
     position: relative;
     display: flex;
@@ -6,8 +7,16 @@
     width: 920px;
     justify-content: space-between;
     align-items: center;
-
+    transition: .3s;
+    transform-origin: right top;
 }
+.post-box:hover {
+    
+    box-shadow: 7px -7px 0 #4e4e4e;
+    transform: translateX(-7px) translateY(7px);
+    border: 1px solid black;
+}
+
 .image {
     width: 370px;
     height: 300px;
@@ -17,6 +26,10 @@
 .separation {
     height: 110%;
     border-left: 1px solid black;
+    transition: 0.3s;
+}
+.post-box:hover .separation{
+    height: 85%;
 }
 .text {
     width: 490px;
@@ -28,6 +41,10 @@
     display: flex;
     justify-content: space-between;
     font-family: 'Roboto';
+}
+
+.post-header {
+    margin: 10px;
 }
 
 .title {
@@ -47,8 +64,8 @@
 }
 .author {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -70,14 +87,18 @@
     font-family: 'Roboto';
     font-size: 1rem;
 }
+.card {
+    position: relative;
+}
 
-
-.post-box:not(:first-of-type)::after {
+.card:not(:first-of-type, :nth-of-type(2))::after {
     content: ' ';
     position: absolute;
-    top: -65px;
-    left: -200px;
+    top: -25px;
+    left: -150px;
     border-top: 1px solid rgb(219, 219, 219);
     width: 1250px;
+    will-change: contents;
     
 }
+

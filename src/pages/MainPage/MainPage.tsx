@@ -1,4 +1,4 @@
-import PostList from "../../components/PostList/PostList";
+import PostList from "../../components/PostList";
 
 import "./MainPage.scss";
 

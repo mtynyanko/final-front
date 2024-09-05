@@ -4,14 +4,12 @@ import {
   POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
-} from "./actions/constants";
-import { PostAction, Post } from "./actions/actions";
+} from "../actions/constants.ts"
+import { PostAction } from "../actions/postActions.ts";
+import { Post } from "../../types/model.types.ts";
+import { PostsState } from "../../types/state.types.ts";
 
-interface PostsState {
-  posts: Post[];
-  isLoading: boolean;
-  error: Error | null;
-}
+
 
 const initialState: PostsState = {
   posts: [],

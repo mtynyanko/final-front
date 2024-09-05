@@ -3,8 +3,8 @@ interface DateFormProps {
   date?: Date;
 }
 
-const DateForm = ({ date, className }: DateFormProps) => {
-  
+const DateForm = ({ date, className = 'date-block' }: DateFormProps) => {
+
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
@@ -12,13 +12,6 @@ const DateForm = ({ date, className }: DateFormProps) => {
     day: "numeric",
   };
 
-  let name;
-
-  if (className) {
-    name = className;
-  } else {
-    name = 'date-block';
-  }
 
   const dateFormatting = (date?: Date): string => {
     let newDate;
@@ -30,7 +23,7 @@ const DateForm = ({ date, className }: DateFormProps) => {
     return newDate.toLocaleDateString("en-US", options);
   };
   return (
-    <div className={name}>{dateFormatting(date)}</div>
+    <div className={className}>{dateFormatting(date)}</div>
   );
 };
 export default DateForm;

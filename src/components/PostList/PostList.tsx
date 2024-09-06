@@ -15,7 +15,8 @@ const PostList = () => {
   const posts = useTypedSelector((state) => state.post.posts);
   const isLoading = useTypedSelector((state) => state.post.isLoading);
   const error = useTypedSelector((state) => state.post.error);
-  const IS_PAGE_EMPTY = !posts.length;
+  const isPageEmpty = !posts.length;
+  const EMPTY_DB_MESSAGE = "no posts for today";
 
   useEffect(() => {
     dispatch(requestPosts());
@@ -26,7 +27,7 @@ const PostList = () => {
   return (
     <>
       {error && <Error errorMessage={error.message} />}
-      {IS_PAGE_EMPTY && <Error errorMessage={"no posts for today"} />}
+      {!error && isPageEmpty && <Error errorMessage={EMPTY_DB_MESSAGE} />}
       <div className="container">
         {posts.map((post) => (
           <PostItem

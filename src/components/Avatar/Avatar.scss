@@ -1,0 +1,14 @@
+.avatar {
+  width: 33px;
+  height: 33px;
+  border-radius: 100%;
+}
+.no-image {
+  color: white;
+  background-color: rgb(117, 117, 117);
+  font-family: "Roboto";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95em;
+}

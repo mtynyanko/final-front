@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "PageTitleFont";
+  src: url(../src/assets/fonts/Chomsky.otf) format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.header div {
+  background-color: #ffff;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: static;
+  z-index: 1000; 
+}
+.title-block {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: fixed !important; 
+  top: 0;
+  z-index: 10;
+}
+.page-name {
+  font-family: "PageTitleFont", sans-serif;
+  font-size: 2.3rem;
+}
+

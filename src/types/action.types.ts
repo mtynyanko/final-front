@@ -1,6 +1,16 @@
+import { AxiosError } from "axios";
+
 import { Post } from "./model.types";
 
-export interface PostAction {
+interface PostActionRequest {
   type: string;
-  payload?: Post[] | Error;
 }
+interface PostActionSuccess {
+  type: string;
+  payload: Post[];
+}
+interface PostActionError {
+  type: string;
+  payload: AxiosError;
+}
+export type PostAction = PostActionRequest | PostActionSuccess | PostActionError;

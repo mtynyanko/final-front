@@ -14,7 +14,6 @@
   position: static;
   z-index: 1000; 
 }
-
 .title-block {
   padding: 10px 20px;
   display: flex;
@@ -24,21 +23,8 @@
   top: 0;
   z-index: 10;
 }
-.date-block {
-  margin-top: 60px;
-  padding: 7px 20px;
-  justify-content: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  font-size: 0.84rem;
-}
-
-
 .page-name {
   font-family: "PageTitleFont", sans-serif;
   font-size: 2.3rem;
 }
-MenuIcon {
-  width: 100px;
-  height: 100px;
-}
+

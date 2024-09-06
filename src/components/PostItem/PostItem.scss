@@ -69,18 +69,6 @@
   gap: 10px;
   font-size: 1.3em;
 }
-.avatar {
-  width: 33px;
-  height: 33px;
-  border-radius: 100%;
-  color: white;
-  background-color: rgb(117, 117, 117);
-  font-family: "Roboto";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95em;
-}
 .author-name {
   font-family: "Roboto";
   font-size: 1rem;
@@ -88,7 +76,6 @@
 .card {
   position: relative;
 }
-
 .card:not(:first-of-type, :nth-of-type(2))::after {
   content: " ";
   position: absolute;

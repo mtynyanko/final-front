@@ -1,6 +1,3 @@
-import { Reducer } from "redux";
-
-import { Post } from "../../types/model.types.ts";
 import { PostAction } from "../../types/action.types.ts";
 import { PostsState } from "../../types/state.types.ts";
 import {
@@ -15,10 +12,7 @@ const initialState: PostsState = {
   error: null,
 };
 
-const postsReducer: Reducer<PostsState, PostAction> = (
-  state = initialState,
-  action
-) => {
+const postsReducer = (state = initialState, action: PostAction) => {
   switch (action.type) {
     case POSTS_REQUEST:
       return {
@@ -26,20 +20,25 @@ const postsReducer: Reducer<PostsState, PostAction> = (
         isLoading: true,
       };
     case FETCH_POSTS_SUCCESS:
-      return {
-        ...state,
-        posts: action.payload as Post[],
-        isLoading: false,
-      };
+      if ("payload" in action) {
+        return {
+          ...state,
+          posts: action.payload,
+          isLoading: false,
+        };
+      }
+      return state;
     case FETCH_POSTS_FAILURE:
-      return {
-        ...state,
-        error: action.payload as Error,
-        isLoading: false,
-      };
+      if ("payload" in action) {
+        return {
+          ...state,
+          error: action.payload,
+          isLoading: false,
+        };
+      }
+      return state;
     default:
       return state;
   }
 };
-
 export default postsReducer;

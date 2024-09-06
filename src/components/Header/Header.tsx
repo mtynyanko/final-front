@@ -1,7 +1,7 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 
-import DateForm from "../DateForm";
+import DateBlock from "../DateBlock";
 
 import "./Header.scss";
 
@@ -14,7 +14,7 @@ const Header = () => {
           <h3 className="page-name">New Taganrog Times</h3>
           <PersonIcon />
         </div>
-        <DateForm />
+        <DateBlock />
       </div>
     </>
   );

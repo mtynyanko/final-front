@@ -1,9 +1,11 @@
+import "./DateBlock.scss";
+
 interface DateFormProps {
   className?: string;
   date?: Date;
 }
 
-const DateForm = ({ date, className = "date-block" }: DateFormProps) => {
+const DateBlock = ({ date, className = "date-block" }: DateFormProps) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
@@ -22,4 +24,4 @@ const DateForm = ({ date, className = "date-block" }: DateFormProps) => {
   };
   return <div className={className}>{dateFormatting(date)}</div>;
 };
-export default DateForm;
+export default DateBlock;

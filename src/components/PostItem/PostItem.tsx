@@ -1,5 +1,6 @@
 import { Tag } from "../../types/model.types";
-import DateForm from "../DateForm";
+import Avatar from "../Avatar";
+import DateBlock from "../DateBlock";
 
 import "./PostItem.scss";
 
@@ -30,20 +31,16 @@ const PostItem = ({
         <div className="text">
           <div className="post-header">
             <h3 className="title">{title}</h3>
-            <DateForm date={createdAt} className="date" />
+            <DateBlock date={createdAt} className="date" />
           </div>
           <div className="tags">
-            {tags.map((tag) => tag.name).reduce((acc, tag) => acc + ", " + tag)}
+            {tags.map((tag) => tag.name).join(', ')}
           </div>
           <div className="content">{content}</div>
         </div>
         <div className="author">
           <div className="author-name">{author}</div>
-          {avatar ? (
-            <img src={avatar} className="avatar" />
-          ) : (
-            <p className="avatar"> {author[0].toUpperCase()} </p>
-          )}
+          <Avatar image={avatar} username={author} />
         </div>
       </div>
     </div>

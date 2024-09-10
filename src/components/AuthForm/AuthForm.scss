@@ -1,0 +1,94 @@
+
+
+@font-face {
+    font-family: "HeaderFont";
+    src: url(../src/assets/fonts/CheltenhamStdBook.otf) format("opentype");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+$element-width: 83%;
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #0000002f;
+    backdrop-filter: blur(3px);
+}
+
+
+.modal-window {
+    width: 600px;
+    height: 440px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10000;
+    box-shadow: 0px 0px 57px 15px rgba(34, 60, 80, 0.2);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-header {
+    margin: 30px;
+    margin-bottom: 0px;
+    font-size: 2rem;
+    font-family: "HeaderFont", sans-serif;
+
+}
+.input-title {
+    align-self: start;
+    margin-top: 27px;
+    margin-left: 55px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+.input-field {
+    width: $element-width;
+    height: 65px;
+    font-size: 1.4rem;
+    padding-left: 20px;
+}
+
+.submit-button {
+    position: relative;
+    margin-top: 24px;
+    width: $element-width;
+    height: 55px;
+    font-family: "Roboto" sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #fff;
+    background-color: #000;
+    border-radius: 4px;
+    transition: 0.3s;
+
+    
+}
+
+.submit-button::after {
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    transform: translate(-50%);
+    content: ' ';
+    border-bottom: 2px solid #000;
+    width: 500px;
+    height: 1px;
+}
+.submit-button:hover {
+    background-color: #3f3f3f;
+}
+.submit-button:active {
+    background-color: #a8a8a8;
+}

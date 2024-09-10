@@ -1,6 +1,7 @@
 import { AxiosError } from "axios";
 
 import { Post } from "./model.types";
+import { AuthResponse, Profile } from "../redux/api/apiAuth";
 
 interface PostActionRequest {
   type: string;
@@ -14,3 +15,20 @@ interface PostActionError {
   payload: AxiosError;
 }
 export type PostAction = PostActionRequest | PostActionSuccess | PostActionError;
+
+interface AuthActionRequest {
+  type: string;
+}
+interface AuthActionFailure {
+  type: string;
+  payload: AxiosError;
+}
+interface ProfileActionSuccess {
+  type: string;
+  payload: Profile;
+}
+interface AuthActionSuccess {
+  type: string;
+  payload: AuthResponse;
+}
+export type AuthAction = AuthActionRequest | AuthActionSuccess | AuthActionFailure | ProfileActionSuccess;

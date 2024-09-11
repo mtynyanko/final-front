@@ -1,5 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import "./AuthForm.scss";
+import { MyDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { closeModalWindow } from "../../redux/actions/modalActions";
 
 interface FormFields {
   email: string;
@@ -7,6 +10,9 @@ interface FormFields {
 }
 
 const AuthForm = () => {
+
+  const dispatch: MyDispatch = useDispatch()
+
   const { register, handleSubmit } = useForm<FormFields>({
     defaultValues: {},
   });
@@ -16,8 +22,8 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="background">
-      <div className="modal-window">
+    <div className="background" onClick={()=>dispatch(closeModalWindow())}>
+      <div className="modal-window" onClick={(e) => e.stopPropagation()}>
         <form className="auth-form" onSubmit={handleSubmit(submit)}>
         <h2 className="form-header">Log in or create account</h2>
           <label className="input-title">Email Address</label>

@@ -32,3 +32,7 @@ interface AuthActionSuccess {
   payload: AuthResponse;
 }
 export type AuthAction = AuthActionRequest | AuthActionSuccess | AuthActionFailure | ProfileActionSuccess;
+
+export interface ModalAction {
+  type: string;
+}

@@ -1,5 +1,7 @@
+import { AxiosError } from "axios";
 import { AuthAction } from "../../types/action.types";
-import { AUTHORIZATION_REQUEST } from "../actions/constants";
+import { AUTHORIZATION_FAILURE, AUTHORIZATION_REQUEST, AUTHORIZATION_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS } from "../actions/constants";
+
 
 
 interface AuthState {
@@ -8,6 +10,8 @@ interface AuthState {
     login: string | null;
     avatar: string | null;
     authorized: boolean;
+    isLoading: boolean;
+    error: null | AxiosError
 }
 
 const initialState: AuthState = {
@@ -16,6 +20,8 @@ const initialState: AuthState = {
   login: null,
   avatar: null,
   authorized: false,
+  isLoading: false,
+  error: null,
 };
 
 const authReducer = (state = initialState, action: AuthAction) => {
@@ -23,36 +29,36 @@ const authReducer = (state = initialState, action: AuthAction) => {
     case AUTHORIZATION_REQUEST:
       return {
         ...state,
+        isLoading: true,
       }
-        }
+    case AUTHORIZATION_SUCCESS:
+      return {
+        ...state,
+        authorized: true,
+        isLoading: false,
+        id: action.payload.id,
+        email: action.payload.email,
+        login: action.payload.login,
+        avatar: action.payload.avatar,
+      }
+    case AUTHORIZATION_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      }
+    case PROFILE_REQUEST: 
+      return {
+        ...state,
+        isLoading: true,
+      }
+    case PROFILE_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+
+      }
+    }
   }
 
 export default authReducer
-// const postsReducer = (state = initialState, action: PostAction) => {
-//   switch (action.type) {
-//     case POSTS_REQUEST:
-//       return {
-//         ...state,
-//         isLoading: true,
-//       };
-//     case FETCH_POSTS_SUCCESS:
-//       if ("payload" in action && !(action.payload instanceof AxiosError)) {
-//         return {
-//           ...state,
-//           posts: action.payload,
-//           isLoading: false,
-//         };
-//       }
-//       return state;
-//     case FETCH_POSTS_FAILURE:
-//       if ("payload" in action && action.payload instanceof AxiosError) {
-//         return {
-//           ...state,
-//           error: action.payload,
-//           isLoading: false,
-//         };
-//       }
-//       return state;
-//     default:
-//       return state;
-//   }

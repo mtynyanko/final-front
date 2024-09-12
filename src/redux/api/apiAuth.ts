@@ -1,4 +1,4 @@
-// import { api } from "./api";
+import { api } from "./api";
 
 interface LoginUserData {
   email: string;
@@ -19,13 +19,13 @@ export interface Profile {
 }
 
 
-// export const signUpApi = () => {
-//   return api.post<AuthResponse>("auth/sign-up");
-// };
-// export const signInApi = () => {
-//     return api.post<AuthResponse>("auth/sign-in");
-// };
-// export const getProfile = () => {
-//     return api.get<Profile>("auth/profile");
-// };
+export const signUpApi = (regUserData: RegUserData) => {
+  return api.post<Profile>("auth/sign-up", regUserData);
+};
+export const signInApi = (loginUserData: LoginUserData) => {
+    return api.post<Profile>("auth/sign-in", loginUserData);
+};
+export const getProfile = () => {
+    return api.get<Profile>("auth/profile");
+};
 

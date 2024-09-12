@@ -5,7 +5,6 @@ import {
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
 } from "../actions/constants.ts";
-import { AxiosError } from "axios";
 
 const initialState: PostsState = {
   posts: [],
@@ -21,23 +20,17 @@ const postsReducer = (state = initialState, action: PostAction) => {
         isLoading: true,
       };
     case FETCH_POSTS_SUCCESS:
-      if ("payload" in action && !(action.payload instanceof AxiosError)) {
-        return {
-          ...state,
-          posts: action.payload,
-          isLoading: false,
-        };
-      }
-      return state;
+      return {
+        ...state,
+        posts: action.payload,
+        isLoading: false,
+      };
     case FETCH_POSTS_FAILURE:
-      if ("payload" in action && action.payload instanceof AxiosError) {
-        return {
-          ...state,
-          error: action.payload,
-          isLoading: false,
-        };
-      }
-      return state;
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
     default:
       return state;
   }

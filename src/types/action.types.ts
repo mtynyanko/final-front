@@ -1,37 +1,62 @@
 import { AxiosError } from "axios";
 
 import { Post } from "./model.types";
-import { AuthResponse, Profile } from "../redux/api/apiAuth";
+import { Profile, UserData } from "../redux/api/apiAuth";
+import { 
+  FETCH_POSTS_FAILURE, 
+  FETCH_POSTS_SUCCESS, 
+  POSTS_REQUEST, 
+  AUTHORIZATION_REQUEST, 
+  AUTHORIZATION_SUCCESS, 
+  AUTHORIZATION_FAILURE,
+  PROFILE_FAILURE,
+  PROFILE_REQUEST,
+  PROFILE_SUCCESS
+ } from "../redux/actions/constants";
 
 interface PostActionRequest {
-  type: string;
+  type: typeof POSTS_REQUEST;
 }
 interface PostActionSuccess {
-  type: string;
+  type: typeof FETCH_POSTS_SUCCESS;
   payload: Post[];
 }
 interface PostActionError {
-  type: string;
+  type: typeof FETCH_POSTS_FAILURE;
   payload: AxiosError;
 }
 export type PostAction = PostActionRequest | PostActionSuccess | PostActionError;
 
 interface AuthActionRequest {
-  type: string;
-}
-interface AuthActionFailure {
-  type: string;
-  payload: AxiosError;
-}
-interface ProfileActionSuccess {
-  type: string;
-  payload: Profile;
+  type: typeof AUTHORIZATION_REQUEST;
+  payload: UserData;
 }
 interface AuthActionSuccess {
-  type: string;
-  payload: AuthResponse;
+  type: typeof AUTHORIZATION_SUCCESS;
+  payload: Profile;
 }
-export type AuthAction = AuthActionRequest | AuthActionSuccess | AuthActionFailure | ProfileActionSuccess;
+interface AuthActionFailure {
+  type: typeof AUTHORIZATION_FAILURE;
+  payload: AxiosError;
+}
+interface ProfileActionRequest {
+  type: typeof PROFILE_REQUEST;
+}
+interface ProfileActionSuccess {
+  type: typeof PROFILE_SUCCESS;
+  payload: Profile;
+}
+interface ProfileActionFailure {
+  type: typeof PROFILE_FAILURE;
+  payload: AxiosError;
+}
+export type AuthAction = 
+  AuthActionRequest | 
+  AuthActionSuccess | 
+  AuthActionFailure |
+  ProfileActionRequest |
+  ProfileActionSuccess |
+  ProfileActionFailure;
 
 export interface ModalAction {
   type: string;

@@ -1,49 +1,34 @@
 import { AxiosError } from "axios";
-import { AuthResponse, Profile } from "../api/apiAuth";
+import { Profile, UserData } from "../api/apiAuth";
 import { 
+    AUTHORIZATION_FAILURE,
+    AUTHORIZATION_REQUEST,
+    AUTHORIZATION_SUCCESS,
     PROFILE_FAILURE,
     PROFILE_REQUEST, 
     PROFILE_SUCCESS, 
-    SIGN_IN_FAILURE, 
-    SIGN_IN_REQUEST, 
-    SIGN_IN_SUCCESS, 
-    SIGN_UP_FAILURE, 
-    SIGN_UP_REQUEST, 
-    SIGN_UP_SUCCESS 
 } from "./constants";
 
-export const signInRequest = () => ({
-    type: SIGN_IN_REQUEST,
+export const authRequest = (userData: UserData) => ({
+    type: AUTHORIZATION_REQUEST,
+    payload: userData,
 })
-export const signUpRequest = () => ({
-    type: SIGN_UP_REQUEST,
+export const authSuccess = (userData: Profile) => ({
+    type: AUTHORIZATION_SUCCESS,
+    payload: userData,
 })
-export const getProfileRequest = () => ({
-    type: PROFILE_REQUEST,
+export const authFailure = (error: AxiosError) => ({
+    type: AUTHORIZATION_FAILURE,
+    payload: error,
 })
 
-export const signInSuccess = (userData: AuthResponse) => ({
-    type: SIGN_IN_SUCCESS,
-    payload: userData,
-})
-export const signUpSuccess = (userData: AuthResponse) => ({
-    type: SIGN_UP_SUCCESS,
-    payload: userData,
+export const getProfileRequest = () => ({
+    type: PROFILE_REQUEST,
 })
 export const getProfileSuccess = (profile: Profile) => ({
     type: PROFILE_SUCCESS,
     payload: profile,
 })
-
-export const signInFailure = (error: AxiosError) => ({
-    type: SIGN_IN_FAILURE,
-    error: error,
-})
-export const signUpFailure = (error: AxiosError) => ({
-    type: SIGN_UP_FAILURE,
-    error: error,
-})
-
 export const getProfileFailure = (error: AxiosError) => ({
     type: PROFILE_FAILURE,
     error: error,

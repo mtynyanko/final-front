@@ -1,25 +1,26 @@
 import { AuthAction } from "../../types/action.types";
-import { SIGN_IN_SUCCESS } from "../actions/constants";
-import { AxiosError } from "axios";
-import { Profile } from "../api/apiAuth";
+import { AUTHORIZATION_REQUEST } from "../actions/constants";
+
 
 interface AuthState {
-    email: string;
-    id: number;
-    token: string;
+    id: number | null;
+    email: string | null;
+    login: string | null;
+    avatar: string | null;
     authorized: boolean;
 }
 
 const initialState: AuthState = {
-  email: '',
-  id: -10,
-  token: '',
+  id: null,
+  email: null,
+  login: null,
+  avatar: null,
   authorized: false,
 };
 
 const authReducer = (state = initialState, action: AuthAction) => {
   switch (action.type) {
-    case SIGN_IN_SUCCESS:
+    case AUTHORIZATION_REQUEST:
       return {
         ...state,
       }

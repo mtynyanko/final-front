@@ -1,10 +1,13 @@
-import { api } from "./api";
+import { AxiosResponse } from "axios";
+import { AuthResponse } from "../sagas/authSaga";
+import api from "./api";
 
-interface LoginUserData {
+
+export interface LoginUserData {
   email: string;
   password: string;
 }
-interface RegUserData {
+export interface RegUserData {
   email: string;
   login: string;
   password: string;
@@ -19,12 +22,16 @@ export interface Profile {
 }
 
 
-export const signUpApi = (regUserData: RegUserData) => {
-  return api.post<Profile>("auth/sign-up", regUserData);
+export const signUpApi = async (regUserData: RegUserData): Promise<Profile> => {
+  const res: AxiosResponse<AuthResponse> = await api.post<AuthResponse>("auth/sign-up", regUserData);
+  localStorage.setItem('accessToken', res.data.access_token)
+  return res.data.payload;
 };
-export const signInApi = (loginUserData: LoginUserData) => {
-    return api.post<Profile>("auth/sign-in", loginUserData);
-};
+export const signInApi = async (loginUserData: LoginUserData): Promise<Profile> => {
+    const res: AxiosResponse<AuthResponse> = await api.post<AuthResponse>("auth/sign-in", loginUserData);
+    localStorage.setItem('accessToken', res.data.access_token)
+    return res.data.payload;
+}
 export const getProfile = () => {
     return api.get<Profile>("auth/profile");
 };

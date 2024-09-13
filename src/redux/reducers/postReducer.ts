@@ -4,7 +4,7 @@ import {
   POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
-} from "../actions/constants.ts";
+} from "../../types/constants.ts";
 
 const initialState: PostsState = {
   posts: [],

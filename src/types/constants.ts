@@ -12,3 +12,5 @@ export const PROFILE_SUCCESS = 'PROFILE_SUCCESS';
 
 export const OPEN_MODAL_WINDOW = 'OPEN_MODAL_WINDOW';
 export const CLOSE_MODAL_WIDOW = 'CLOSE_MODAL_WINDOW';
+
+export const UNKNOWN_ERROR = "unknown error";

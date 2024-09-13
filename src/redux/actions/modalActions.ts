@@ -1,4 +1,4 @@
-import { CLOSE_MODAL_WIDOW, OPEN_MODAL_WINDOW } from "./constants";
+import { CLOSE_MODAL_WIDOW, OPEN_MODAL_WINDOW } from "../../types/constants";
 
 export const openModalWindow = () => ({
     type: OPEN_MODAL_WINDOW,

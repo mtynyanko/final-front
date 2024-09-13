@@ -11,8 +11,9 @@ import {
   AUTHORIZATION_FAILURE,
   PROFILE_FAILURE,
   PROFILE_REQUEST,
-  PROFILE_SUCCESS
- } from "../redux/actions/constants";
+  PROFILE_SUCCESS,
+  SIGN_OUT
+ } from "./constants";
 
 interface PostActionRequest {
   type: typeof POSTS_REQUEST;
@@ -27,7 +28,7 @@ interface PostActionError {
 }
 export type PostAction = PostActionRequest | PostActionSuccess | PostActionError;
 
-interface AuthActionRequest {
+export interface AuthActionRequest {
   type: typeof AUTHORIZATION_REQUEST;
   payload: UserData;
 }
@@ -50,13 +51,17 @@ interface ProfileActionFailure {
   type: typeof PROFILE_FAILURE;
   payload: AxiosError;
 }
+interface AuthSignOut {
+  type: typeof SIGN_OUT;
+}
 export type AuthAction = 
   AuthActionRequest | 
   AuthActionSuccess | 
   AuthActionFailure |
   ProfileActionRequest |
   ProfileActionSuccess |
-  ProfileActionFailure;
+  ProfileActionFailure |
+  AuthSignOut;
 
 export interface ModalAction {
   type: string;

@@ -6,8 +6,9 @@ import {
     AUTHORIZATION_SUCCESS,
     PROFILE_FAILURE,
     PROFILE_REQUEST, 
-    PROFILE_SUCCESS, 
-} from "./constants";
+    PROFILE_SUCCESS,
+    SIGN_OUT, 
+} from "../../types/constants";
 
 export const authRequest = (userData: UserData) => ({
     type: AUTHORIZATION_REQUEST,
@@ -34,4 +35,6 @@ export const getProfileFailure = (error: AxiosError) => ({
     error: error,
 })
 
-  
+export const signOut = () => ({
+    type: SIGN_OUT,
+})

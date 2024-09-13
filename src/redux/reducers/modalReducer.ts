@@ -1,5 +1,5 @@
 import { ModalAction } from "../../types/action.types";
-import { CLOSE_MODAL_WIDOW, OPEN_MODAL_WINDOW } from "../actions/constants";
+import { CLOSE_MODAL_WIDOW, OPEN_MODAL_WINDOW } from "../../types/constants";
 
 interface ModalState {
     isOpen: boolean;

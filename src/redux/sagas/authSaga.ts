@@ -41,6 +41,7 @@ function* authWorker(action: AuthActionRequest) {
 function* profileWorker() {
   try {
     const response: AxiosResponse<Profile> = yield call(getProfile);
+    console.log(response, 'response')
     yield put(getProfileSuccess(response.data));
   } catch (error) {
     const currentError = error instanceof AxiosError;

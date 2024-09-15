@@ -28,6 +28,7 @@ const PostList = () => {
     <>
       {error && <Error errorMessage={error.message} />}
       {!error && isPageEmpty && <Error errorMessage={EMPTY_DB_MESSAGE} />}
+      {console.log(posts)}
       <div className="container">
         {posts.map((post) => (
           <PostItem

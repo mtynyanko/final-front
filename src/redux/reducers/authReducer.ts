@@ -66,12 +66,14 @@ const authReducer = (state = initialState, action: AuthAction) => {
         email: action.payload.email,
         login: action.payload.login,
         avatar: action.payload.avatar,
+        authorized: true,
       };
     case PROFILE_FAILURE:
       return {
         ...state,
         isLoading: false,
         error: action.payload,
+        authorized: false,
       };
     case SIGN_OUT:
       return {

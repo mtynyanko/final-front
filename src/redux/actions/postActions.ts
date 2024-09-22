@@ -5,7 +5,7 @@ import {
   POSTS_REQUEST,
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_SUCCESS,
-} from "./constants.ts";
+} from "../../types/constants.ts";
 import { AxiosError } from "axios";
 
 export const requestPosts = (): PostAction => ({

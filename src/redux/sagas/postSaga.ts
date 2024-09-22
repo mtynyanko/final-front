@@ -2,11 +2,9 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { AxiosError, AxiosResponse } from "axios";
 
 import { Post } from "../../types/model.types";
-import { POSTS_REQUEST } from "../actions/constants";
+import { POSTS_REQUEST, UNKNOWN_ERROR } from "../../types/constants";
 import { fetchPostsSuccess, fetchPostsError } from "../actions/postActions";
 import { getPostsApi } from "../api/apiPosts";
-
-const UNKNOWN_ERROR = "unknown error";
 
 function* fetchPosts() {
   try {

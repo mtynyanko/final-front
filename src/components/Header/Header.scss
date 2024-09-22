@@ -5,7 +5,7 @@
   font-style: normal;
 }
 
-.header div {
+.header div:not(.user, .user-logged) {
   background-color: #ffff;
   border-bottom: 1px solid rgb(216, 216, 216);
   display: flex;
@@ -22,9 +22,48 @@
   position: fixed !important; 
   top: 0;
   z-index: 10;
+  position:relative;
+  
 }
 .page-name {
   font-family: "PageTitleFont", sans-serif;
   font-size: 2.3rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  
 }
 
+.user {
+  padding: 3px 6px 0 6px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.user:hover {
+  background-color: #ececec;
+}
+.user.active {
+  background-color: #c5c5c5;
+}
+
+.user-logged {
+  display: flex;
+  flex-direction: row;
+
+}
+.sign-out {
+  background-color: #fff;
+  border: 1px solid black;
+  height: 30px;
+  width: 60px;
+  margin-right: 10px;
+  margin-top: 1px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  transition: 0.3s;
+  
+}
+.sign-out:hover {
+  background-color: #000;
+  color: #fff;
+}

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { getProfileRequest } from "../redux/actions/authActions";
 import { useEffect } from "react";
 
+
 const App = () => {
 
   const dispatch: MyDispatch = useDispatch();
@@ -20,9 +21,9 @@ const App = () => {
   
   return (
     <>
-      {isOpen && <AuthForm />}
-      <Header />
-      <MainPage />
+        {isOpen && <AuthForm />}
+        <Header />
+        <MainPage />
     </>
   );
 };
